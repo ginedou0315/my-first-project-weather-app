@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Dancing+Script:wght@400..700&family=Indie+Flower&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Source+Code+Pro:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ginny's Weather App</title>
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Weather Forecast</h1>
-    </header>
-    <main>
-      <form>
-        <input type="search" placeholder="Enter a city" />
-        <input type="submit" value="Search" />
-      </form>
-      <h1>📍Paris</h1>
-      <p>
-        🌞 <br />
-        sunny <br />
-        Date <br />
-        Day <br />
-        <br />
-        <strong>8°C</strong> <br />
-        feels like... <br />
-        Sunrise <br />
-        Sunset <br />
-        Humidity <br />
-        Wind <br />
-        Direction
-      </p>
-      <h2></h2>
-    </main>
-    <footer>
-      Coded by <a href=""></a>Ginelle Doubek, is open-sourced in Github and
-      hosted in Netlify
-    </footer>
+    <div class="weatherApp">
+      <header>
+        <div class="headerh1">Weather Forecast</div>
+      </header>
+      <main>
+        <form class="search-submit-input">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="search-input"
+            id="search-input"
+          />
+          <input
+            type="submit"
+            value="Search"
+            class="search-button"
+            id="search-button"
+          />
+        </form>
+        <h1>📍Paris</h1>
+        <p>
+          🌞 <br />
+          sunny <br />
+          Date <br />
+          Day <br />
+          <br />
+          <strong>8°C</strong> <br />
+          feels like... <br />
+          Sunrise <br />
+          Sunset <br />
+          Humidity <br />
+          Wind <br />
+          Direction
+        </p>
+        <h2></h2>
+      </main>
+      <footer>
+        Coded by <a href=""></a>Ginelle Doubek, is open-sourced in Github and
+        hosted in Netlify
+      </footer>
+    </div>
   </body>
 </html>

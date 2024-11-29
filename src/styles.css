@@ -1,0 +1,39 @@
+.headerh1 {
+  color: #eee4b1;
+  font-family: "Atma", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 40px;
+  text-align: center;
+}
+.weatherApp {
+  background: #6a42c2;
+  color: #fff7d1;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  max-width: 700px;
+  height: auto;
+  margin: 50px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+.search-submit-input {
+  display: flex;
+  position: relative;
+}
+.search-input {
+  font-size: 17px;
+  background-color: #ebeaff;
+  color: #605ea1;
+  border-radius: 3px;
+  border: none;
+  width: 25%;
+  line-height: 1.2;
+}
+.search-button {
+  background: #8b5dff;
+  color: #eee4b1;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 17px;
+  line-height: 1.2;
+}
