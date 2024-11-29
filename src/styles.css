@@ -9,9 +9,11 @@
   margin-bottom: 20px;
 }
 .weatherApp {
-  background: #6a42c2;
+  background: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
   color: #fff7d1;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
   max-width: 700px;
   height: 400px;
   margin: 50px auto;
@@ -33,6 +35,7 @@
   border: none;
   width: 25%;
   line-height: 1.2;
+  margin-left: 20px;
 }
 .search-button {
   background: #8b5dff;
@@ -41,6 +44,7 @@
   border-style: none;
   font-size: 17px;
   line-height: 1.2;
+  margin-left: 10px;
 }
 .weather-forecast {
   display: flex;
