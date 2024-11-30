@@ -15,7 +15,11 @@ a {
   color: #fcd53f;
 }
 .weatherApp {
-  background: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
+  background: radial-gradient(
+    circle at 52.1% -29.6%,
+    rgb(144, 17, 105) 0%,
+    rgb(51, 0, 131) 100.2%
+  );
   color: #fff7d1;
   font-family: "Delius", cursive;
   font-weight: 400;
@@ -29,6 +33,14 @@ a {
 
 .current-city-value {
   font-size: 28px;
+  position: relative;
+  right: 20px;
+}
+.date-day-input {
+  position: relative;
+  top: 80px;
+  right: 180px;
+  font-size: 18px;
 }
 .search-submit-input {
   display: block;
@@ -73,12 +85,7 @@ a {
   position: relative;
   right: 40px;
 }
-.date-day-input {
-  position: relative;
-  top: 80px;
-  right: 160px;
-  font-size: 18px;
-}
+
 .sunrise-sunset {
   position: relative;
   top: 5px;
