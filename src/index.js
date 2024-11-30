@@ -8,6 +8,7 @@ function searchInput(event) {
 let cityInputValue = document.querySelector("#search-input-form");
 cityInputValue.addEventListener("submit", searchInput);
 
+let currentDate = new Date();
 let months = [
   "Jan",
   "Feb",
@@ -31,18 +32,29 @@ let days = [
   "Friday",
   "Saturday",
 ];
-let currenttime = new Date();
-let currentMonth = months[currenttime.getMonth()];
-let currentDay = days[currenttime.getDay()];
-let currentDate = `${currenttime.getDate()} ${currentMonth} ${currenttime.getFullYear()}`;
-let currentHours = currenttime.getHours();
-let currentMinutes = currenttime.getMinutes();
+let currentMonth = months[currentDate.getMonth()];
+let currentYear = currentDate.getFullYear();
+let dateValue = currentDate.getDate();
+let currentDateValue = `${dateValue} ${currentMonth} ${currentYear}`;
 
 let dateElement = document.querySelector("#date-element");
-dateElement.innerHTML = currentDate;
+dateElement.innerHTML = currentDateValue;
 
+let currentDay = days[currentDate.getDay()];
 let dayElement = document.querySelector("#day-input");
 dayElement.innerHTML = currentDay;
 
-let timeElement = document.querySelector("#time-input");
-timeElement.innerHTML = `${currentHours}:${currentMinutes}`;
+function timeElement(time) {
+  let currentHours = time.getHours();
+  let currentMinutes = time.getMinutes();
+  if (currentHours < 10) {
+    currentHours = `0${currentHours}`;
+  }
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+  return `${currentHours}:${currentMinutes}`;
+}
+
+let timeValue = document.querySelector("#time-input");
+timeValue.innerHTML = timeElement(currentDate);
