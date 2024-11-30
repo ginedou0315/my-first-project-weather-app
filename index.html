@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ginny's Weather App</title>
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="weatherApp">
@@ -60,7 +61,8 @@
             </span>
           </div>
           <div class="other-condition-details">
-            <span class="temperature-input"><strong>8</strong></span
+            <span class="temperature-input" id="temperature-input"
+              ><strong>8</strong></span
             ><span class="degree-unit">°C</span> <br />
             feels like... <br /><br />
             Humidity <br />

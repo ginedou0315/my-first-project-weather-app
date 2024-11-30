@@ -1,13 +1,3 @@
-function searchInput(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-input");
-  let cityElement = document.querySelector("#city-element");
-  cityElement.innerHTML = cityInput.value;
-}
-
-let cityInputValue = document.querySelector("#search-input-form");
-cityInputValue.addEventListener("submit", searchInput);
-
 let currentDate = new Date();
 let months = [
   "Jan",
@@ -58,3 +48,28 @@ function timeElement(time) {
 
 let timeValue = document.querySelector("#time-input");
 timeValue.innerHTML = timeElement(currentDate);
+
+function searchInput(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  let cityElement = document.querySelector("#city-element");
+  let city = cityInput.value.trim();
+  cityElement.innerHTML = city;
+  fetchTemperature(city);
+}
+
+let cityInputValue = document.querySelector("#search-input-form");
+cityInputValue.addEventListener("submit", searchInput);
+
+function currentTemperature(response) {
+  let realTimeTemp = Math.round(response.data.temperature.current);
+  let currentTempValue = document.querySelector("#temperature-input");
+  currentTempValue.innerHTML = `${realTimeTemp}`;
+}
+
+function fetchTemperature(city) {
+  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(currentTemperature);
+}
