@@ -1,5 +1,5 @@
 .headerh1 {
-  color: #eee4b1;
+  color: #fcd53f;
   font-family: "Atma", system-ui;
   font-weight: 500;
   font-style: normal;
@@ -10,6 +10,9 @@
 }
 .weather-main-elements {
   padding-bottom: 40px;
+}
+a {
+  color: #fcd53f;
 }
 .weatherApp {
   background: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
@@ -66,6 +69,10 @@
   right: -20px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
+.second-column-elements {
+  position: relative;
+  right: 40px;
+}
 .date-day-input {
   position: relative;
   top: 80px;
@@ -95,13 +102,17 @@
 .temperature-input {
   position: relative;
   top: -20px;
-
   font-size: 80px;
+}
+.degree-unit {
+  font-size: 32px;
+  position: relative;
+  top: -50px;
 }
 .other-condition-details {
   position: relative;
-  right: 70px;
-  border-left: 1px solid #eee4b1;
+  right: 100px;
+  border-left: 1px solid #6b56a0;
   padding-left: 30px;
 }
 footer {
