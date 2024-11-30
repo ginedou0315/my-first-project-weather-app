@@ -24,32 +24,40 @@
         <div class="headerh1">Weather Forecast</div>
       </header>
       <main>
-        <form class="search-submit-input">
-          <input
-            type="search"
-            placeholder="Enter a city..."
-            class="search-input"
-            id="search-input"
-          />
-          <input
-            type="submit"
-            value="Search"
-            class="search-button"
-            id="search-button"
-          />
-        </form>
+        <div class="search-submit-input">
+          <form>
+            <input
+              type="search"
+              placeholder="Enter a city..."
+              class="search-input"
+              id="search-input"
+            />
+            <input
+              type="submit"
+              value="Search"
+              class="search-button"
+              id="search-button"
+            />
+          </form>
+        </div>
         <div class="weather-forecast">
-          <h1><div class="current-city-value">📍Paris</div></h1>
-          <h2 class="date-day-input">
-            Date <br />
-            Day
-          </h2>
-          <p>
+          <div class="first-column-elements">
+            <h1 class="current-city-value">📍Paris</h1>
+            <h2 class="date-day-input">
+              Date <br />
+              Day
+            </h2>
+          </div>
+          <div class="second-column-elements">
             <span class="icon-condition"> 🌞 </span>
-            <span class="text-condition">sunny</span>
-            <span class="temperature-input"><strong>8°C</strong> </span> <br />
-          </p>
+            <span class="text-condition">sunny</span> <br />
+            <span class="sunrise-sunset"
+              >🌅 Sunrise <br />
+              🌇 Sunset
+            </span>
+          </div>
           <div class="other-condition-details">
+            <span class="temperature-input"><strong>8°C</strong> </span> <br />
             feels like... <br /><br />
             Humidity <br />
             Wind <br />
