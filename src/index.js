@@ -66,6 +66,17 @@ function searchCity(city) {
 }
 searchCity("Prague");
 
+//function sunriseSunset(LATITUDE, LONGITUDE) {
+//let sunApiURL = `https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}&formatted=0`;
+//axios.get(sunApiURL).then(sunriseSunsetCondition);
+//}
+
+//function sunriseSunsetCondition(response) {
+//let sunriseElement = document.querySelector("#sunrise");
+//let realTimeSunrise = response.results.sunrise;
+//sunriseElement.innerHTML = `${realTimeSunrise}`;
+//}
+
 function currentConditions(response) {
   let cityElement = document.querySelector("#city-element");
   cityElement.innerHTML = response.data.city;
