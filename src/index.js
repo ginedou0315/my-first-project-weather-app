@@ -52,16 +52,25 @@ timeValue.innerHTML = timeElement(currentDate);
 function searchInput(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-input");
-  let cityElement = document.querySelector("#city-element");
-  let city = cityInput.value.trim();
-  cityElement.innerHTML = city;
-  fetchTemperature(city);
+  searchCity(cityInput.value);
 }
 
 let cityInputValue = document.querySelector("#search-input-form");
 cityInputValue.addEventListener("submit", searchInput);
 
+function searchCity(city) {
+  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(currentConditions);
+}
+searchCity("Zurich");
+
 function currentConditions(response) {
+  console.log(response);
+  let cityElement = document.querySelector("#city-element");
+  cityElement.innerHTML = response.data.city;
+
   let realTimeTemp = Math.round(response.data.temperature.current);
   let currentTempValue = document.querySelector("#temperature-input");
   currentTempValue.innerHTML = `${realTimeTemp}`;
@@ -73,11 +82,16 @@ function currentConditions(response) {
   let realTimeTextCondition = response.data.condition.description;
   let textCondition = document.querySelector("#text-condition");
   textCondition.innerHTML = `${realTimeTextCondition}`;
-}
 
-function fetchTemperature(city) {
-  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let realFeelsLikeTemp = Math.round(response.data.temperature.feels_like);
+  let feelsLikeElement = document.querySelector("#feelsLike");
+  feelsLikeElement.innerHTML = `${realFeelsLikeTemp}°C`;
 
-  axios.get(apiURL).then(currentConditions);
+  let realTimeHumidity = response.data.temperature.humidity;
+  let humidityElement = document.querySelector("#humidity-value");
+  humidityElement.innerHTML = `${realTimeHumidity}`;
+
+  let realTimeWind = response.data.wind.speed;
+  let windElement = document.querySelector("#wind-value");
+  windElement.innerHTML = `${realTimeWind} m/s`;
 }

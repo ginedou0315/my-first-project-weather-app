@@ -44,8 +44,8 @@
         <div class="weather-forecast">
           <div class="first-column-elements">
             <span class="current-city-value"
-              >📍<strong id="city-element">Adelaide</strong></span
-            >
+              >📍<strong id="city-element"></strong
+            ></span>
           </div>
           <div class="date-day-input">
             <span id="date-element">Date</span> <br />
@@ -62,12 +62,12 @@
           </div>
           <div class="other-condition-details">
             <span class="temperature-input" id="temperature-input"
-              ><strong>8</strong></span
+              ><strong></strong></span
             ><span class="degree-unit">°C</span> <br />
-            feels like... <br /><br />
-            Humidity <br />
-            Wind <br />
-            Direction
+            feels like... <span id="feelsLike"></span> <br /><br />
+            Humidity: <strong><span id="humidity-value"></span></strong> <br />
+            Wind: <strong><span id="wind-value"></span></strong> <br />
+            Direction:<span id="direction-value"></span>
           </div>
         </div>
       </main>
