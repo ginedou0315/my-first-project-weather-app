@@ -30,6 +30,9 @@ a {
   padding: 10px;
   border-radius: 10px;
 }
+strong {
+  color: #fcd53f;
+}
 
 .current-city-value {
   font-size: 28px;

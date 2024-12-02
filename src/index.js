@@ -66,8 +66,18 @@ function searchCity(city) {
 }
 searchCity("Zurich");
 
+function sunriseSunset(LATITUDE, LONGITUDE) {
+  let sunApiURL = `https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}&formatted=0`;
+  axios.get(sunApiURL).then(sunriseSunsetCondition);
+}
+
+function sunriseSunsetCondition(response) {
+  let sunriseElement = document.querySelector("#sunrise");
+  let realTimeSunrise = response.results.sunrise;
+  sunriseElement.innerHTML = `${realTimeSunrise}`;
+}
+
 function currentConditions(response) {
-  console.log(response);
   let cityElement = document.querySelector("#city-element");
   cityElement.innerHTML = response.data.city;
 
@@ -89,9 +99,19 @@ function currentConditions(response) {
 
   let realTimeHumidity = response.data.temperature.humidity;
   let humidityElement = document.querySelector("#humidity-value");
-  humidityElement.innerHTML = `${realTimeHumidity}`;
+  humidityElement.innerHTML = `${realTimeHumidity}%`;
 
   let realTimeWind = response.data.wind.speed;
   let windElement = document.querySelector("#wind-value");
   windElement.innerHTML = `${realTimeWind} m/s`;
+
+  let windDegree = response.data.wind.degree;
+  let windDirection = getWindDirection(windDegree);
+  let windDirectionElement = document.querySelector("#wind-direction");
+  if (windDirectionElement) windDirectionElement.innerHTML = `${windDirection}`;
+}
+function getWindDirection(degree) {
+  let directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+  let index = Math.round(degree / 45) % 8;
+  return directions[index];
 }
