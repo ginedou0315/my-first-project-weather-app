@@ -64,7 +64,7 @@ function searchCity(city) {
 
   axios.get(apiURL).then(currentConditions);
 }
-searchCity("Prague");
+searchCity("New York");
 
 //function sunriseSunset(LATITUDE, LONGITUDE) {
 //let sunApiURL = `https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}&formatted=0`;
