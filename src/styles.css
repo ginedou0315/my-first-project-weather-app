@@ -93,7 +93,7 @@ a {
 .sunrise-sunset {
   position: relative;
   top: 5px;
-  left: 20px;
+  left: -10px;
 }
 .weather-forecast {
   display: flex;
@@ -104,11 +104,13 @@ a {
   font-size: 100px;
   position: relative;
   top: -30px;
+  right: 20px;
 }
 .text-condition {
   position: relative;
   top: 10px;
-  right: 110px;
+  right: 135px;
+  text-align: left;
 }
 .temperature-input {
   position: relative;

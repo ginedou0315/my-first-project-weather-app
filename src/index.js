@@ -61,15 +61,23 @@ function searchInput(event) {
 let cityInputValue = document.querySelector("#search-input-form");
 cityInputValue.addEventListener("submit", searchInput);
 
-function currentTemperature(response) {
+function currentConditions(response) {
   let realTimeTemp = Math.round(response.data.temperature.current);
   let currentTempValue = document.querySelector("#temperature-input");
   currentTempValue.innerHTML = `${realTimeTemp}`;
+
+  let realTimeIcon = response.data.condition.icon;
+  let iconConditionEmoji = document.querySelector("#icon-condition");
+  iconConditionEmoji.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
+
+  let realTimeTextCondition = response.data.condition.description;
+  let textCondition = document.querySelector("#text-condition");
+  textCondition.innerHTML = `${realTimeTextCondition}`;
 }
 
 function fetchTemperature(city) {
   let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(apiURL).then(currentTemperature);
+  axios.get(apiURL).then(currentConditions);
 }
