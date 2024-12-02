@@ -35,15 +35,18 @@ strong {
 }
 
 .current-city-value {
-  font-size: 28px;
+  font-size: 26px;
   position: relative;
-  right: 20px;
+  right: -10px;
+  text-align: center;
+  white-space: nowrap;
 }
 .date-day-input {
   position: relative;
-  top: 100px;
-  right: 220px;
+  top: 80px;
+  right: 110px;
   font-size: 18px;
+  white-space: nowrap;
 }
 .search-submit-input {
   display: block;
@@ -90,7 +93,7 @@ strong {
 }
 .second-column-elements {
   position: relative;
-  right: 30px;
+  left: 75px;
 }
 
 .sunrise-sunset {
@@ -113,7 +116,8 @@ strong {
   position: relative;
   top: 10px;
   right: 135px;
-  text-align: left;
+  text-align: center;
+  white-space: nowrap;
 }
 .temperature-input {
   position: relative;
@@ -127,9 +131,9 @@ strong {
 }
 .other-condition-details {
   position: relative;
-  right: 80px;
+  right: 50px;
   border-left: 1px solid #6b56a0;
-  padding-left: 30px;
+  padding: 0 30px 0 30px;
   color: #fff7d1;
 }
 footer {
