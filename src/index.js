@@ -64,8 +64,7 @@ function searchCity(city) {
 
   axios.get(apiURL).then(currentConditions);
 }
-searchCity("New York");
-
+searchCity("Prague");
 //function sunriseSunset(LATITUDE, LONGITUDE) {
 //let sunApiURL = `https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}&formatted=0`;
 //axios.get(sunApiURL).then(sunriseSunsetCondition);
@@ -91,7 +90,7 @@ function currentConditions(response) {
 
   let realTimeTextCondition = response.data.condition.description;
   let textCondition = document.querySelector("#text-condition");
-  //textCondition.innerHTML = `${realTimeTextCondition}`;
+  textCondition.innerHTML = `${realTimeTextCondition}`;
 
   let realFeelsLikeTemp = Math.round(response.data.temperature.feels_like);
   let feelsLikeElement = document.querySelector("#feelsLike");
@@ -115,3 +114,28 @@ function getWindDirection(degree) {
   let index = Math.round(degree / 45) % 8;
   return directions[index];
 }
+
+//function displayForecast() {
+//let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+//let forecastsHtml = "";
+
+//days.forEach(function (day) {
+//forecastsHtml += (
+//<div class="day-forecast">
+//<div class="date-forecast">${day}</div>
+//<div class="icon-forecast">🌤️</div>
+//<div class="temperature-forecasts">
+//<div class="temp-forecast">
+// <strong>18°</strong>
+//</div>
+//<div class="temp-forecast">10°</div>
+//</div>
+//</div>
+//);
+//});
+//let forecastsElement = document.querySelector("#forecast");
+//forecastsElement.innerHTML = forecastsHtml;
+
+//}
+
+//displayForecast();
