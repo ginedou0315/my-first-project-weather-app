@@ -119,7 +119,7 @@ strong {
 .weekly-forecasts {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin: 30px 30px;
 }
 .date-forecast {
   text-align: center;
