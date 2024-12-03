@@ -85,7 +85,7 @@ strong {
 .current-city-value {
   font-size: 26px;
   position: relative;
-  right: -20px;
+  right: -30px;
   text-align: center;
   white-space: nowrap;
 }
@@ -106,6 +106,15 @@ strong {
   border-left: 1px solid #6b56a0;
   padding: 0 0 0 20px;
   color: #fff7d1;
+}
+.temperature-input {
+  font-size: 70px;
+  text-align: center;
+}
+.degree-unit {
+  font-size: 30px;
+  position: relative;
+  top: -30px;
 }
 footer {
   border-top: 1px solid #6b56a0;
