@@ -91,7 +91,7 @@ function currentConditions(response) {
 
   let realTimeTextCondition = response.data.condition.description;
   let textCondition = document.querySelector("#text-condition");
-  textCondition.innerHTML = `${realTimeTextCondition}`;
+  //textCondition.innerHTML = `${realTimeTextCondition}`;
 
   let realFeelsLikeTemp = Math.round(response.data.temperature.feels_like);
   let feelsLikeElement = document.querySelector("#feelsLike");

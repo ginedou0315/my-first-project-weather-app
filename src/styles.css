@@ -8,9 +8,6 @@
   padding: 20px auto;
   margin-bottom: 20px;
 }
-.weather-main-elements {
-  padding-bottom: 40px;
-}
 a {
   color: #fcd53f;
 }
@@ -25,28 +22,22 @@ a {
   font-weight: 400;
   font-style: normal;
   max-width: 700px;
-  height: 400px;
-  margin: 50px auto;
+  height: 550px;
+  margin: 30px auto;
   padding: 10px;
   border-radius: 10px;
 }
+.weather-main-elements {
+  padding: 15px 40px 15px 15px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #6b56a0;
+}
+.weather-forecast {
+  display: flex;
+  justify-content: space-between;
+}
 strong {
   color: #fcd53f;
-}
-
-.current-city-value {
-  font-size: 26px;
-  position: relative;
-  right: -10px;
-  text-align: center;
-  white-space: nowrap;
-}
-.date-day-input {
-  position: relative;
-  top: 80px;
-  right: 110px;
-  font-size: 18px;
-  white-space: nowrap;
 }
 .search-submit-input {
   display: block;
@@ -91,53 +82,32 @@ strong {
   right: -20px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
-.second-column-elements {
+.current-city-value {
+  font-size: 26px;
   position: relative;
-  left: 75px;
-}
-
-.sunrise-sunset {
-  position: relative;
-  top: 5px;
-  left: -10px;
-}
-.weather-forecast {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icon-condition {
-  font-size: 100px;
-  position: relative;
-  top: -30px;
-  right: 20px;
-}
-.text-condition {
-  position: relative;
-  top: 10px;
-  right: 135px;
+  right: -20px;
   text-align: center;
   white-space: nowrap;
 }
-.temperature-input {
+.date-day-input {
   position: relative;
-  top: -20px;
-  font-size: 65px;
+  top: 75px;
+  right: 120px;
+  font-size: 18px;
+  white-space: nowrap;
 }
-.degree-unit {
-  font-size: 32px;
-  position: relative;
-  top: -50px;
+.icon-condition,
+.text-condition {
+  text-align: center;
 }
 .other-condition-details {
   position: relative;
-  right: 50px;
+  right: 30px;
   border-left: 1px solid #6b56a0;
-  padding: 0 30px 0 30px;
+  padding: 0 0 0 20px;
   color: #fff7d1;
 }
 footer {
-  display: block;
   border-top: 1px solid #6b56a0;
   padding: 15px 0 0 0;
   text-align: center;
