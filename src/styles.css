@@ -29,7 +29,7 @@ a {
 }
 .weather-main-elements {
   padding: 15px 40px 15px 15px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #6b56a0;
 }
 .weather-forecast {
@@ -115,6 +115,29 @@ strong {
   font-size: 30px;
   position: relative;
   top: -30px;
+}
+.weekly-forecasts {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.date-forecast {
+  text-align: center;
+  font-size: 16px;
+  line-height: 15px;
+}
+.icon-forecast {
+  text-align: center;
+  font-size: 38px;
+}
+.temperature-forecasts {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.temp-forecast {
+  padding: 0 5px;
 }
 footer {
   border-top: 1px solid #6b56a0;
