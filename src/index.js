@@ -115,27 +115,26 @@ function getWindDirection(degree) {
   return directions[index];
 }
 
-//function displayForecast() {
-//let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-//let forecastsHtml = "";
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastsHtml = "";
 
-//days.forEach(function (day) {
-//forecastsHtml += (
-//<div class="day-forecast">
-//<div class="date-forecast">${day}</div>
-//<div class="icon-forecast">🌤️</div>
-//<div class="temperature-forecasts">
-//<div class="temp-forecast">
-// <strong>18°</strong>
-//</div>
-//<div class="temp-forecast">10°</div>
-//</div>
-//</div>
-//);
-//});
-//let forecastsElement = document.querySelector("#forecast");
-//forecastsElement.innerHTML = forecastsHtml;
+  days.forEach(function (day) {
+    forecastsHtml += (
+      <div class="day-forecast">
+        <div class="date-forecast">${day}</div>
+        <div class="icon-forecast">🌤️</div>
+        <div class="temperature-forecasts">
+          <div class="temp-forecast">
+            <strong>18°</strong>
+          </div>
+          <div class="temp-forecast">10°</div>
+        </div>
+      </div>
+    );
+  });
+  let forecastsElement = document.querySelector("#forecast");
+  forecastsElement.innerHTML = forecastsHtml;
+}
 
-//}
-
-//displayForecast();
+displayForecast();
