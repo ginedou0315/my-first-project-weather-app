@@ -120,7 +120,7 @@ function displayForecast() {
   let forecastsHtml = "";
 
   days.forEach(function (day) {
-    forecastsHtml += (
+    forecastsHtml += `
       <div class="day-forecast">
         <div class="date-forecast">${day}</div>
         <div class="icon-forecast">🌤️</div>
@@ -131,10 +131,15 @@ function displayForecast() {
           <div class="temp-forecast">10°</div>
         </div>
       </div>
-    );
+    `;
   });
+
   let forecastsElement = document.querySelector("#forecast");
-  forecastsElement.innerHTML = forecastsHtml;
+  if (forecastsElement) {
+    forecastsElement.innerHTML = forecastsHtml;
+  } else {
+    console.error("Forecast element not found in the DOM.");
+  }
 }
 
 displayForecast();
