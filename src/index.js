@@ -65,16 +65,6 @@ function searchCity(city) {
   axios.get(apiURL).then(currentConditions);
 }
 searchCity("Prague");
-//function sunriseSunset(LATITUDE, LONGITUDE) {
-//let sunApiURL = `https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}&formatted=0`;
-//axios.get(sunApiURL).then(sunriseSunsetCondition);
-//}
-
-//function sunriseSunsetCondition(response) {
-//let sunriseElement = document.querySelector("#sunrise");
-//let realTimeSunrise = response.results.sunrise;
-//sunriseElement.innerHTML = `${realTimeSunrise}`;
-//}
 
 function currentConditions(response) {
   let cityElement = document.querySelector("#city-element");
@@ -108,11 +98,41 @@ function currentConditions(response) {
   let windDirection = getWindDirection(windDegree);
   let windDirectionElement = document.querySelector("#wind-direction");
   if (windDirectionElement) windDirectionElement.innerHTML = `${windDirection}`;
+
+  getForecast(response.data.city);
+  sunriseSunset(
+    response.data.coordinates.latitude,
+    response.data.coordinates.longitude
+  );
 }
 function getWindDirection(degree) {
   let directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let index = Math.round(degree / 45) % 8;
   return directions[index];
+}
+
+function sunriseSunset(LATITUDE, LONGITUDE) {
+  let apiURL = `https://api.sunrise-sunset.org/json?lat=${LATITUDE}&lng=${LONGITUDE}`;
+  axios.get(apiURL).then(sunriseSunsetCondition);
+}
+
+sunriseSunset("50.0755", "14.4378");
+
+function sunriseSunsetCondition(response) {
+  let sunriseRealTime = response.data.results.sunrise;
+  let sunsetRealTime = response.data.results.sunset;
+
+  let sunriseElement = document.querySelector("#sunrise");
+  let sunsetElement = document.querySelector("#sunset");
+
+  sunriseElement.innerHTML = sunriseRealTime;
+  sunsetElement.innerHTML = sunsetRealTime;
+}
+
+function getForecast(city) {
+  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 function displayForecast() {
