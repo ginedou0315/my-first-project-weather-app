@@ -137,8 +137,6 @@ function displayForecast() {
   let forecastsElement = document.querySelector("#forecast");
   if (forecastsElement) {
     forecastsElement.innerHTML = forecastsHtml;
-  } else {
-    console.error("Forecast element not found in the DOM.");
   }
 }
 
