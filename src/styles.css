@@ -119,6 +119,7 @@ strong {
 .weekly-forecasts {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 20px 20px;
 }
 .date-forecast {
   text-align: center;
@@ -128,6 +129,7 @@ strong {
 .icon-forecast {
   text-align: center;
   font-size: 38px;
+  display: block;
 }
 .temperature-forecasts {
   text-align: center;

@@ -146,15 +146,21 @@ function getForecast(city) {
   axios.get(apiURL).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu,", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 function displayForecast(response) {
   console.log(response.data);
 
   let forecastsHtml = "";
 
-  response.data.daily.forEach(function (day) {
-    forecastsHtml += `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      forecastsHtml += `
       <div class="day-forecast">
-        <div class="date-forecast">Tue</div>
+        <div class="date-forecast">${day.time}</div>
         <div class="icon-forecast"> <img src="${
           day.condition.icon_url
         }"/> </div>
@@ -168,6 +174,7 @@ function displayForecast(response) {
         </div>
       </div>
     `;
+    }
   });
 
   let forecastsElement = document.querySelector("#forecast");
