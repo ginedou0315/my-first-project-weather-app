@@ -129,6 +129,17 @@ function sunriseSunsetCondition(response) {
   sunsetElement.innerHTML = sunsetRealTime;
 }
 
+function cityTimeZone(response) {
+  //let cityLocation = response.data.timezone.location;
+  console.log(response);
+}
+
+function getSuntimes(city) {
+  let apiKey = "dhQHfPxLWzGu";
+  let sunApiUrl = `https://timezoneapi.io/api/timezone/?Europe/Paris&token=${apiKey}`;
+  axios.get(sunApiUrl).then(cityTimeZone);
+}
+
 function getForecast(city) {
   let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
   let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
