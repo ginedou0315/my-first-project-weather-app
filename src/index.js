@@ -148,7 +148,7 @@ function getForecast(city) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu,", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[date.getDay()];
 }
 function displayForecast(response) {
@@ -160,7 +160,7 @@ function displayForecast(response) {
     if (index < 6) {
       forecastsHtml += `
       <div class="day-forecast">
-        <div class="date-forecast">${day.time}</div>
+        <div class="date-forecast">${formatDay(day.time)}</div>
         <div class="icon-forecast"> <img src="${
           day.condition.icon_url
         }"/> </div>
