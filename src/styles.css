@@ -118,13 +118,12 @@ strong {
 }
 .weekly-forecasts {
   display: flex;
-  justify-content: space-around;
-  margin: 30px 30px;
+  justify-content: space-between;
 }
 .date-forecast {
   text-align: center;
   font-size: 16px;
-  line-height: 15px;
+  line-height: 10px;
 }
 .icon-forecast {
   text-align: center;
@@ -134,10 +133,15 @@ strong {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  font-size: 20px;
+  position: relative;
+  top: -20px;
 }
 .temp-forecast {
   padding: 0 5px;
+}
+#minimum-temp {
+  color: #b3afa0;
 }
 footer {
   border-top: 1px solid #6b56a0;
