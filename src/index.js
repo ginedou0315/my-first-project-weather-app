@@ -92,7 +92,7 @@ function currentConditions(response) {
 
   let realTimeWind = response.data.wind.speed;
   let windElement = document.querySelector("#wind-value");
-  windElement.innerHTML = `${realTimeWind} m/s`;
+  windElement.innerHTML = `${realTimeWind} km/h`;
 
   let windDegree = response.data.wind.degree;
   let windDirection = getWindDirection(windDegree);
