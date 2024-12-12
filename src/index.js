@@ -122,22 +122,17 @@ function sunriseSunsetCondition(response) {
   let sunriseRealTime = response.data.results.sunrise;
   let sunsetRealTime = response.data.results.sunset;
 
+  let sunriseUtc = moment.utc(sunriseRealTime, "h:mm:ss A");
+  let sunsetUtc = moment.utc(sunsetRealTime, "h:mm:ss A");
+
+  let localTimeZoneSunrise = sunriseUtc.tz("Europe/Berlin").format("h:mm A");
+  let localTimeZoneSunset = sunsetUtc.tz("Europe/Berlin").format("h:mm A");
+
   let sunriseElement = document.querySelector("#sunrise");
   let sunsetElement = document.querySelector("#sunset");
 
-  sunriseElement.innerHTML = sunriseRealTime;
-  sunsetElement.innerHTML = sunsetRealTime;
-}
-
-function cityTimeZone(response) {
-  //let cityLocation = response.data.timezone.location;
-  console.log(response);
-}
-
-function getSuntimes(city) {
-  let apiKey = "dhQHfPxLWzGu";
-  let sunApiUrl = `https://timezoneapi.io/api/timezone/?Europe/Paris&token=${apiKey}`;
-  axios.get(sunApiUrl).then(cityTimeZone);
+  sunriseElement.innerHTML = localTimeZoneSunrise;
+  sunsetElement.innerHTML = localTimeZoneSunset;
 }
 
 function getForecast(city) {
@@ -184,3 +179,5 @@ function displayForecast(response) {
 }
 
 displayForecast();
+
+getSunTimes("Tokyo");
