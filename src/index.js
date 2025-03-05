@@ -111,28 +111,44 @@ function getWindDirection(degree) {
   return directions[index];
 }
 
-function sunriseSunset(LATITUDE, LONGITUDE) {
+function sunriseSunset(LATITUDE, LONGITUDE, city) {
   let apiURL = `https://api.sunrise-sunset.org/json?lat=${LATITUDE}&lng=${LONGITUDE}`;
-  axios.get(apiURL).then(sunriseSunsetCondition);
+  axios.get(apiURL).then((response) => sunriseSunsetCondition(response, city));
 }
 
 sunriseSunset("50.0755", "14.4378");
 
-function sunriseSunsetCondition(response) {
+function sunriseSunsetCondition(response, city) {
   let sunriseRealTime = response.data.results.sunrise;
   let sunsetRealTime = response.data.results.sunset;
-
-  let sunriseUtc = moment.utc(sunriseRealTime, "h:mm:ss A");
-  let sunsetUtc = moment.utc(sunsetRealTime, "h:mm:ss A");
-
-  let localTimeZoneSunrise = sunriseUtc.tz("Europe/Berlin").format("h:mm A");
-  let localTimeZoneSunset = sunsetUtc.tz("Europe/Berlin").format("h:mm A");
-
-  let sunriseElement = document.querySelector("#sunrise");
-  let sunsetElement = document.querySelector("#sunset");
-
-  sunriseElement.innerHTML = localTimeZoneSunrise;
-  sunsetElement.innerHTML = localTimeZoneSunset;
+  const cityTimezones = {
+    Tokyo: "Asia/Tokyo",
+    "New York": "America/New_York",
+    London: "Europe/London",
+    Berlin: "Europe/Berlin",
+    Prague: "Europe/Berlin",
+  };
+  let timezone = cityTimezones[city];
+  if (timezone) {
+    let localTimeZoneSunrise = moment
+      .tz(sunriseRealTime, "h:mm:ss A", "UTC")
+      .tz(timezone)
+      .format("h:mm A");
+    let localTimeZoneSunset = moment
+      .tz(sunsetRealTime, "h:mm:ss A", "UTC")
+      .tz(timezone)
+      .format("h:mm A");
+    console.log("Local Timezone Sunrise:", localTimeZoneSunrise);
+    console.log("Local Timezone Sunset:", localTimeZoneSunset);
+    let sunriseElement = document.querySelector("#sunrise");
+    let sunsetElement = document.querySelector("#sunset");
+    if (sunriseElement && sunsetElement) {
+      sunriseElement.innerHTML = localTimeZoneSunrise;
+      sunsetElement.innerHTML = localTimeZoneSunset;
+    }
+  } else {
+    console.error("Timezone for the city not found.");
+  }
 }
 
 function getForecast(city) {
