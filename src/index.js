@@ -49,23 +49,6 @@ function timeElement(time) {
 let timeValue = document.querySelector("#time-input");
 timeValue.innerHTML = timeElement(currentDate);
 
-function searchInput(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-input");
-  searchCity(cityInput.value);
-}
-
-let cityInputValue = document.querySelector("#search-input-form");
-cityInputValue.addEventListener("submit", searchInput);
-
-function searchCity(city) {
-  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
-  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-  axios.get(apiURL).then(currentConditions);
-}
-searchCity("Prague");
-
 function currentConditions(response) {
   let cityElement = document.querySelector("#city-element");
   cityElement.innerHTML = response.data.city;
@@ -100,23 +83,42 @@ function currentConditions(response) {
   if (windDirectionElement) windDirectionElement.innerHTML = `${windDirection}`;
 
   getForecast(response.data.city);
-  sunriseSunset(
-    response.data.coordinates.latitude,
-    response.data.coordinates.longitude
-  );
 }
 function getWindDirection(degree) {
   let directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let index = Math.round(degree / 45) % 8;
   return directions[index];
 }
+function searchInput(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  searchCity(cityInput.value);
+}
+
+let cityInputValue = document.querySelector("#search-input-form");
+cityInputValue.addEventListener("submit", searchInput);
+
+function searchCity(city) {
+  let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then((response) => {
+    currentConditions(response);
+    let coordinates = response.data.coordinates;
+    let latitude = coordinates.latitude;
+    let longitude = coordinates.longitude;
+    sunriseSunset(latitude, longitude, city);
+  });
+}
+searchCity("Prague");
 
 function sunriseSunset(LATITUDE, LONGITUDE, city) {
   let apiURL = `https://api.sunrise-sunset.org/json?lat=${LATITUDE}&lng=${LONGITUDE}`;
   axios.get(apiURL).then((response) => sunriseSunsetCondition(response, city));
 }
 
-sunriseSunset("50.0755", "14.4378");
+let latitude = "50.0755";
+let longitude = "14.4378";
+let city = cityInputValue;
 
 function sunriseSunsetCondition(response, city) {
   let sunriseRealTime = response.data.results.sunrise;
@@ -150,6 +152,7 @@ function sunriseSunsetCondition(response, city) {
     console.error("Timezone for the city not found.");
   }
 }
+sunriseSunsetCondition();
 
 function getForecast(city) {
   let apiKey = "e430a0b40t5635ffab9bc012406aa3ao";
