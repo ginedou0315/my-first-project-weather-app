@@ -103,9 +103,8 @@ function searchCity(city) {
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then((response) => {
     currentConditions(response);
-    let coordinates = response.data.coordinates;
-    let latitude = coordinates.latitude;
-    let longitude = coordinates.longitude;
+    const latitude = response.data.coordinates.latitude;
+    const longitude = response.data.coordinates.longitude;
     sunriseSunset(latitude, longitude, city);
   });
 }
@@ -116,10 +115,6 @@ function sunriseSunset(LATITUDE, LONGITUDE, city) {
   axios.get(apiURL).then((response) => sunriseSunsetCondition(response, city));
 }
 
-let latitude = "50.0755";
-let longitude = "14.4378";
-let city = cityInputValue;
-
 function sunriseSunsetCondition(response, city) {
   let sunriseRealTime = response.data.results.sunrise;
   let sunsetRealTime = response.data.results.sunset;
@@ -129,6 +124,9 @@ function sunriseSunsetCondition(response, city) {
     London: "Europe/London",
     Berlin: "Europe/Berlin",
     Prague: "Europe/Berlin",
+    Manila: "Asia/Tokyo",
+    Bangkok: "Asia/Tokyo",
+    "Kuala Lumpur": "Asia/Tokyo",
   };
   let timezone = cityTimezones[city];
   if (timezone) {
