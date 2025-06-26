@@ -212,6 +212,18 @@ function sunriseSunsetCondition(response, city) {
     Tashkent: "Asia/Tokyo",
     Sydney: "Australia/Sydney",
     Brisbane: "Australia/Sydney",
+    Canberra: "Australia/Sydney",
+    Melbourne: "Australia/Sydney",
+    Adelaide: "Australia/Sydney",
+    Perth: "Australia/Sydney",
+    Christchurch: "Australia/Sydney",
+    Auckland: "Australia/Sydney",
+    Suva: "Australia/Sydney",
+    Tarawa: "Australia/Sydney",
+    Majuro: "Australia/Sydney",
+    Palikir: "Australia/Sydney",
+    Wellington: "Australia/Sydney",
+    Queenstown: "Australia/Sydney",
   };
   let timezone = cityTimezones[city];
   if (timezone) {
